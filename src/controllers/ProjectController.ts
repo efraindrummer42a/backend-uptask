@@ -60,6 +60,10 @@ export class ProjectController {
                 return res.status(404).json({error: error.message });
             }
 
+            project.clientName = req.body.clientName
+            project.projectName = req.body.projectName
+            project.description = req.body.description
+
             const p = await project.save();
             console.log(p)
             res.send('Proyecto actualizado')
